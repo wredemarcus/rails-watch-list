@@ -30,6 +30,10 @@ gem "autoprefixer-rails", "10.2.5"
 gem "font-awesome-sass", "~> 5.12.0"
 gem "simple_form"
 
+# Seed gems
+gem 'nokogiri', '~> 1.12', '>= 1.12.5'
+gem 'open-uri', '~> 0.2.0'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
