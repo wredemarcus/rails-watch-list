@@ -1,3 +1,6 @@
 <div class="container">
   <h1> <%= @list.name %> </h1>
+  <% @list.bookmarks.each do |bookmark| %>
+  <%= bookmark.comment %> <%= link_to '🚮', bookmark_path(bookmark), method: 'delete', data: { confirmation: 'Confirm deletion' }%>
+  <% end %>
 </div>
