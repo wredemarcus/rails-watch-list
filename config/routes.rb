@@ -5,5 +5,4 @@ Rails.application.routes.draw do
   resources :lists, only: %i[show new create]
 
   resources :bookmarks, only: %i[new create destroy]
-
 end

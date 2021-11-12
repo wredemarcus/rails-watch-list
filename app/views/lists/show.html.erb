@@ -1,6 +1,27 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= cl_image_path @list.photo.key, height: 300, crop: :fill %>);">
+  <div class="container">
+    <h1> <%= @list.name %> </h1>
+    <br>
+    <%= link_to "Add a movie",  new_bookmark_path, class: "btn btn-secondary"%>
+  </div>
+</div>
+
 <div class="container">
-  <h1> <%= @list.name %> </h1>
-  <% @list.bookmarks.each do |bookmark| %>
-  <%= bookmark.comment %> <%= link_to '🚮', bookmark_path(bookmark), method: 'delete', data: { confirmation: 'Confirm deletion' }%>
-  <% end %>
+  <div class="cards">
+    <div class="card-movie">
+    <% @list.bookmarks.each do |bookmark| %>
+      <%= cl_image_tag @list.photo.key, width: 400, height: 300, crop: :fill %>
+      <div class="card-movie-infos">
+        <div>
+          <h2> <%= bookmark.movie.title %> - <i class="fas fa-star"></i> <%= bookmark.movie.rating %> /10 </h2>
+          <p> <%= bookmark.movie.overview %></p>
+        </div>
+      </div>
+      <div class="footer">
+        <p> <i class="fas fa-marker"></i> <%= bookmark.comment %> </p>
+        <p> <%= link_to "delete", bookmark_path(bookmark), method: 'delete' %> </p>
+      </div>
+      <% end %>
+    </div>
+  </div>
 </div>

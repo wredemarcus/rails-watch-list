@@ -1,14 +1,13 @@
+<%= render '/lists/banner' %>
+
 <div class="container">
   <h1> Movie lists </h1>
 
-  <% @lists.each do |list| %>
-    <ul>
-      <li>
-        <%= link_to list.name, list_path(list) %>
-      </li>
-    </ul>
-  <% end %>
-
-  <%= link_to "Add list", new_list_path, class: "btn btn-primary"%>
-  <%= link_to "Add bookmark", new_bookmark_path, class: "btn btn-success"%>
+  <div class="cards">
+    <% @lists.each do |list| %>
+      <div class="card-list" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path list.photo.key, height: 300, crop: :fill %>)">
+      <%= link_to list.name, list_path(list) %>
+      </div>
+    <% end %>
+  </div>
 </div>
