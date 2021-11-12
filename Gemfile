@@ -58,3 +58,6 @@ gem 'rails-controller-testing', group: [ :test ]
 
 # Protect API Keys with .env gem
 gem 'dotenv-rails', groups: [:development, :test]
+
+# Picture management
+gem 'cloudinary', '~> 1.16.0'
