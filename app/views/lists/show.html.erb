@@ -8,20 +8,20 @@
 
 <div class="container">
   <div class="cards">
-    <div class="card-movie">
     <% @list.bookmarks.each do |bookmark| %>
-      <%= cl_image_tag @list.photo.key, width: 400, height: 300, crop: :fill %>
-      <div class="card-movie-infos">
-        <div>
-          <h2> <%= bookmark.movie.title %> - <i class="fas fa-star"></i> <%= bookmark.movie.rating %> /10 </h2>
-          <p> <%= bookmark.movie.overview %></p>
+    <div class="card-movie">
+      <img src= <%= bookmark.movie.poster_url %> alt="" style="width=400 height=300">
+        <div class="card-movie-infos">
+          <div>
+            <h2> <%= bookmark.movie.title %> - <i class="fas fa-star"></i> <%= bookmark.movie.rating %> /10 </h2>
+            <p> <%= bookmark.movie.overview %></p>
+          </div>
+        </div>
+        <div class="footer">
+          <p> <i class="fas fa-marker"></i> <%= bookmark.comment %> </p>
+          <p> <%= link_to "delete", bookmark_path(bookmark), method: 'delete' %> </p>
         </div>
       </div>
-      <div class="footer">
-        <p> <i class="fas fa-marker"></i> <%= bookmark.comment %> </p>
-        <p> <%= link_to "delete", bookmark_path(bookmark), method: 'delete' %> </p>
-      </div>
-      <% end %>
-    </div>
+    <% end %>
   </div>
 </div>
